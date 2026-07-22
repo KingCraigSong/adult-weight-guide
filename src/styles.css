@@ -42,6 +42,10 @@ button { cursor: pointer; }
 .brand strong, .brand small { display: block; }
 .brand strong { font-size: 14px; letter-spacing: 0.08em; }
 .brand small { margin-top: 4px; color: var(--muted); font-size: 11px; }
+.page-nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.page-nav-button { padding: 8px 12px; border: 0; border-radius: 999px; color: var(--muted); background: transparent; font-size: 12px; transition: .2s ease; }
+.page-nav-button:hover { color: var(--ink); background: var(--pine-light); }
+.page-nav-button.active { color: #fff; background: var(--pine); }
 .header-note { color: var(--muted); font-size: 12px; }
 .header-note i { padding: 0 6px; color: var(--vermilion); font-style: normal; }
 
@@ -59,6 +63,54 @@ h1 em { color: #e7b37e; font-style: normal; }
 .hero-stamp { position: relative; z-index: 1; display: grid; min-width: 112px; padding: 16px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; aspect-ratio: 1; place-content: center; text-align: center; transform: rotate(-8deg); }
 .hero-stamp span, .hero-stamp small { display: block; font-size: 9px; letter-spacing: .2em; }
 .hero-stamp strong { display: block; margin: 2px 0; font-family: Georgia, serif; font-size: 26px; font-weight: 400; }
+.weight-loss-hero { position: relative; display: flex; align-items: end; justify-content: space-between; min-height: 220px; padding: 20px 36px 34px; border-radius: 26px; background: #315e53; color: #f9f6ed; overflow: hidden; }
+.weight-loss-hero::after { content: ""; position: absolute; width: 460px; height: 460px; right: -120px; top: -220px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 36px rgba(255,255,255,.045), 0 0 0 72px rgba(255,255,255,.045); }
+.weight-loss-hero .hero-copy, .weight-loss-hero .hero-stamp { position: relative; z-index: 1; }
+.weight-loss-hero .hero-description { max-width: 650px; }
+.weight-loss-hero h1 em { color: #a9d5bd; }
+.weight-loss-intro { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 62px 0 28px; }
+.weight-loss-intro > p { max-width: 390px; margin-bottom: 2px; color: var(--muted); font-size: 13px; line-height: 1.75; text-align: right; }
+.weight-loss-filter-bar { align-items: end; flex-wrap: wrap; }
+.weight-loss-filter-bar .filter-intro { min-width: 100%; margin-right: 0; }
+.portable-checkbox { margin: 0 6px 8px 2px; color: var(--muted); }
+.portable-checkbox .el-checkbox__label { color: var(--muted); font-size: 12px; }
+.portable-checkbox.is-checked .el-checkbox__label { color: var(--pine); }
+.weight-loss-library { padding-top: 64px; }
+.weight-loss-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+.weight-loss-card { display: flex; min-height: 320px; flex-direction: column; padding: 20px; border: 1px solid rgba(29,81,68,.14); border-radius: 18px; background: rgba(255,255,255,.68); box-shadow: 0 2px 0 rgba(29,81,68,.02); transition: .2s ease; }
+.weight-loss-card:hover { border-color: rgba(29,81,68,.3); box-shadow: var(--shadow); transform: translateY(-4px); }
+.meal-type-label { color: var(--vermilion); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.weight-loss-card-heading { margin-top: 32px; }
+.weight-loss-card-heading p { margin-bottom: 8px; color: var(--muted); font-size: 11px; }
+.weight-loss-card h3 { min-height: 54px; margin-bottom: 0; font-family: Georgia, "Songti SC", serif; font-size: 21px; font-weight: 500; line-height: 1.35; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0 20px; }
+.tag-list .el-tag { border-color: rgba(29,81,68,.16); color: var(--pine); background: var(--pine-light); font-size: 10px; }
+.ingredient-preview { min-height: 58px; margin-bottom: 20px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.ingredient-preview strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 11px; }
+.weight-loss-card-footer { display: flex; align-items: end; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 15px; border-top: 1px solid var(--line); }
+.weight-loss-card-footer > span { color: var(--muted); font-size: 10px; }
+.weight-loss-detail-summary { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1px; margin: 26px 0 32px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--line); }
+.weight-loss-detail-summary > div { min-height: 82px; padding: 15px; background: rgba(255,255,255,.5); }
+.weight-loss-detail-summary > div:first-child { background: var(--pine); color: #fff; }
+.weight-loss-detail-summary strong, .weight-loss-detail-summary span { display: block; }
+.weight-loss-detail-summary strong { color: var(--pine); font-size: 16px; }
+.weight-loss-detail-summary > div:first-child strong { font-family: Georgia, serif; color: #fff; font-size: 28px; font-weight: 400; }
+.weight-loss-detail-summary span { margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.weight-loss-detail-summary > div:first-child span { color: rgba(255,255,255,.7); }
+.weight-loss-detail-sections { display: grid; grid-template-columns: .8fr 1.2fr; gap: 22px 28px; }
+.weight-loss-detail-section { padding-top: 16px; border-top: 1px solid var(--line); }
+.drawer-section-heading { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.drawer-section-heading h3 { margin: 0; font-size: 14px; }
+.ingredient-list, .step-list { display: grid; gap: 8px; margin: 0; padding: 0; color: var(--muted); font-size: 11px; line-height: 1.6; list-style: none; }
+.ingredient-list li { padding-left: 12px; position: relative; }
+.ingredient-list li::before { content: ""; position: absolute; left: 0; top: .65em; width: 5px; height: 5px; border-radius: 50%; background: var(--vermilion); }
+.step-list { counter-reset: step; }
+.step-list li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; }
+.step-list li > span { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: var(--pine); background: var(--pine-light); font-size: 10px; }
+.carry-tip { display: grid; gap: 5px; margin-top: 24px; padding: 14px 16px; border-left: 3px solid var(--vermilion); border-radius: 0 10px 10px 0; background: var(--vermilion-soft); color: var(--muted); font-size: 11px; line-height: 1.6; }
+.carry-tip strong { color: var(--ink); font-size: 12px; }
+.drawer-source a { color: var(--vermilion); text-decoration: none; }
+.drawer-source a:hover { text-decoration: underline; }
 
 .season-section { padding: 68px 0 28px; }
 .section-heading-row, .library-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
@@ -159,6 +211,7 @@ h2 { margin-bottom: 0; font-family: Georgia, "Songti SC", serif; font-size: clam
 
 @media (max-width: 1020px) {
   .recipe-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .weight-loss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .filter-bar { flex-wrap: wrap; }
   .filter-intro { min-width: 100%; margin-right: 0; }
 }
@@ -167,10 +220,16 @@ h2 { margin-bottom: 0; font-family: Georgia, "Songti SC", serif; font-size: clam
   .header-inner, .page-content, .site-footer { width: min(100% - 28px, 620px); }
   .header-inner { min-height: 68px; }
   .header-note { display: none; }
+  .page-nav { margin-left: auto; }
+  .page-nav-button { padding: 7px 9px; font-size: 11px; }
   .page-content { padding-top: 28px; }
   .hero-section { min-height: 330px; align-items: start; padding: 28px 22px; }
   .hero-stamp { position: absolute; right: 24px; bottom: 24px; min-width: 88px; }
   .hero-description { font-size: 13px; }
+  .weight-loss-hero { min-height: 330px; align-items: start; padding: 28px 22px; }
+  .weight-loss-hero .hero-stamp { position: absolute; right: 24px; bottom: 24px; min-width: 88px; }
+  .weight-loss-intro { display: block; padding-top: 50px; }
+  .weight-loss-intro > p { max-width: 100%; margin-top: 12px; text-align: left; }
   .section-heading-row, .library-heading { display: block; }
   .season-description { max-width: 100%; margin-top: 12px; text-align: left; }
   .season-tabs { display: flex; overflow-x: auto; margin-right: -14px; padding: 2px 14px 10px 0; scrollbar-width: none; }
@@ -179,11 +238,14 @@ h2 { margin-bottom: 0; font-family: Georgia, "Songti SC", serif; font-size: clam
   .filter-intro { grid-column: 1 / -1; min-width: 0; }
   .filter-control { grid-template-columns: 1fr; gap: 6px; }
   .filter-control .el-select { width: 100%; }
+  .portable-checkbox { margin: 0; }
   .clear-button { grid-column: 1 / -1; justify-self: start; margin: 0; }
   .library-section { padding-top: 50px; }
   .result-count { display: inline-block; margin-top: 10px; }
   .recipe-grid { grid-template-columns: 1fr; margin-top: 20px; }
+  .weight-loss-grid { grid-template-columns: 1fr; margin-top: 20px; }
   .recipe-card { min-height: 0; }
+  .weight-loss-card { min-height: 0; }
   .site-footer { display: grid; padding-bottom: 24px; }
   .reference-note { margin-top: 48px; }
   .drawer-content { padding: 20px 18px 30px; }
@@ -191,6 +253,9 @@ h2 { margin-bottom: 0; font-family: Georgia, "Songti SC", serif; font-size: clam
   .nutrition-panel { grid-template-columns: 1fr 1fr; }
   .nutrition-total { grid-column: 1 / -1; min-height: 74px !important; }
   .drawer-meals { grid-template-columns: 1fr; gap: 20px; }
+  .weight-loss-detail-summary { grid-template-columns: 1fr 1fr; }
+  .weight-loss-detail-summary > div:first-child { grid-column: 1 / -1; min-height: 74px; }
+  .weight-loss-detail-sections { grid-template-columns: 1fr; gap: 20px; }
   .drawer-meal-section li { grid-template-columns: minmax(76px, .45fr) 1fr; }
   .drawer-meal-section li em { grid-column: 2; }
 }
