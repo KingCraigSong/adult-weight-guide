@@ -4,6 +4,8 @@ import { ENERGY_OPTIONS, REGIONS, SEASONS, filterRecipes, recipes } from './data
 import { CALORIE_BANDS, COOKING_METHODS, MEAL_CATEGORIES, PREP_TIMINGS, WEIGHT_LOSS_MEALS, filterWeightLossMeals, weightLossMeals } from './data/weightLossMeals'
 import { readFilters, writeFilters } from './utils/urlState'
 
+const appBaseUrl = import.meta.env.BASE_URL
+
 const seasonMeta = {
   春季: { icon: '芽', eyebrow: '万物生发', description: '选择清鲜应季食材，给身体一个轻盈的开始。' },
   夏季: { icon: '荷', eyebrow: '清润一夏', description: '以瓜果、绿叶菜和清淡烹调，陪你安稳度过暑热。' },
@@ -177,7 +179,7 @@ onBeforeUnmount(() => {
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/" aria-label="返回应季食谱参考首页">
+        <a class="brand" :href="appBaseUrl" aria-label="返回应季食谱参考首页">
           <span class="brand-mark" aria-hidden="true">食</span>
           <span>
             <strong>应季食谱参考</strong>
