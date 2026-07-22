@@ -1,0 +1,61 @@
+name: Build and publish deployment branch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-branch
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build production assets
+        run: npm run build
+
+      - name: Publish build to deploy branch
+        env:
+          DEPLOY_BRANCH: deploy
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          publish_dir="$(mktemp -d)"
+          cp -R dist/. "$publish_dir/"
+          touch "$publish_dir/.nojekyll"
+
+          git fetch origin "$DEPLOY_BRANCH" || true
+          git branch -D "$DEPLOY_BRANCH" 2>/dev/null || true
+          git switch --orphan "$DEPLOY_BRANCH"
+          git rm -rf . 2>/dev/null || true
+          cp -R "$publish_dir"/. .
+
+          git add -f dist
+          git add .nojekyll
+          git commit -m "Deploy ${GITHUB_SHA}"
+          git push origin "HEAD:$DEPLOY_BRANCH" --force
